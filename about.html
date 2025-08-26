@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFA Awareness - About Us</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <button class="menu-button" onclick="toggleMenu()">☰</button>
+    <nav>
+        <img src="images/logo.jpg" alt="PFA Logo" class="logo">
+        <h1>PFA Thapar</h1>
+        <a href="javascript:void(0)" class="close-button" onclick="closeMenu()">×</a>
+        <a href="about.html">About Us</a>
+        <a href="team.html">Our Team</a>
+        <a href="donation.html">Donation</a>
+        <a href="gallery.html">Gallery</a>
+    </nav>
+
+
+    <!-- Main Content Section for About Us -->
+    <main class="page-content">
+    <section class="about">
+            <h2>About Us</h2>
+            <p>People For Animals (PFA) is dedicated to animal welfare, focusing on rescue, sterilization, vaccination, and community education. Our mission is to create a safer, kinder world for animals through compassion and action.</p>
+        </section>
+    </main>
+    
+    <!-- Include the JavaScript from the previous response for menu functionality -->
+    <script>
+        function toggleMenu() {
+            const sideMenu = document.getElementById("sideMenu");
+            if (sideMenu.style.width === "250px") {
+                sideMenu.style.width = "0";
+            } else {
+                sideMenu.style.width = "250px";
+            }
+        }
+
+        function closeMenu() {
+            document.getElementById("sideMenu").style.width = "0";
+        }
+    </script>
+</body>
+</html>

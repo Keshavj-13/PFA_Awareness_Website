@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFA Awareness - Our Team</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <button class="menu-button" onclick="toggleMenu()">☰</button>
+    <nav>
+        <img src="images/logo.jpg" alt="PFA Logo" class="logo">
+        <h1>PFA Thapar</h1>
+        <a href="javascript:void(0)" class="close-button" onclick="closeMenu()">×</a>
+        <a href="about.html">About Us</a>
+        <a href="team.html">Our Team</a>
+        <a href="donation.html">Donation</a>
+        <a href="gallery.html">Gallery</a>
+    </nav>
+
+
+    <!-- Main Content Section for Our Team -->
+    <main class="page-content">
+        <h1>Our Team</h1>
+        <p>This is the content for the Our Team page. You can add your specific text, images, and other elements here.</p>
+    </main>
+    
+    <!-- Include the JavaScript from the previous response for menu functionality -->
+    <script>
+        function toggleMenu() {
+            const sideMenu = document.getElementById("sideMenu");
+            if (sideMenu.style.width === "250px") {
+                sideMenu.style.width = "0";
+            } else {
+                sideMenu.style.width = "250px";
+            }
+        }
+
+        function closeMenu() {
+            document.getElementById("sideMenu").style.width = "0";
+        }
+    </script>
+</body>
+</html>

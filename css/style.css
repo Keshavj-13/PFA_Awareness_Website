@@ -261,6 +261,72 @@ footer {
     filter: brightness(0.7) invert(1) sepia(1) saturate(5) hue-rotate(180deg);
 }
 
+/* Side menu styling */
+.side-menu {
+    height: 100%; /* Full height */
+    width: 0; /* 0 width by default, for a sliding effect */
+    position: fixed; /* Stay fixed on the screen */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #333;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the menu */
+    padding-top: 60px; /* Space from the top */
+}
+
+/* Side menu links */
+.side-menu a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.side-menu a:hover {
+    color: #f1f1f1;
+}
+
+/* Close button styling */
+.side-menu .close-button {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* Menu button styling */
+.menu-button {
+    font-size: 30px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    color: #333;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 2;
+}
+
+/* Responsive design for larger screens */
+@media screen and (min-width: 768px) {
+    .menu-button {
+        display: none; /* Hide the menu button on larger screens */
+    }
+    .side-menu {
+        width: 250px; /* Make the menu visible on larger screens */
+        padding-top: 0;
+        position: relative;
+        left: 0;
+    }
+    .side-menu .close-button {
+        display: none;
+    }
+}
+
 @media (max-width: 900px) {
     nav {
         padding: 0.6rem 0.8rem;

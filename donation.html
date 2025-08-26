@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFA Awareness - Donation</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /*
+         * You can add this CSS to your style.css file for consistency
+         * across your entire website.
+         */
+        .button-style {
+            display: inline-block;
+            text-decoration: none;
+            color: #fff; /* White text color */
+            background-color: #007BFF; /* A pleasant blue color */
+            padding: 12px 24px;
+            border-radius: 8px; /* Slightly more rounded corners */
+            text-align: center;
+            cursor: pointer;
+            border: none; /* No border for a cleaner look */
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-size: 16px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 5px; /* Add margin to separate the buttons */
+        }
+        
+        .button-style:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+            transform: translateY(-2px); /* Slight lift on hover */
+        }
+
+        .help-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px; /* Spacing between buttons */
+            margin-top: 20px;
+        }
+
+        /* Specific styling for the UPI link to maintain consistency */
+        .help-button-link {
+            text-decoration: none;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <button class="menu-button" onclick="toggleMenu()">☰</button>
+    <nav>
+        <img src="images/logo.jpg" alt="PFA Logo" class="logo">
+        <h1>PFA Thapar</h1>
+        <a href="javascript:void(0)" class="close-button" onclick="closeMenu()">×</a>
+        <a href="about.html">About Us</a>
+        <a href="team.html">Our Team</a>
+        <a href="donation.html">Donation</a>
+        <a href="gallery.html">Gallery</a>
+    </nav>
+
+
+    <!-- Main Content Section for Donation -->
+    <main class="page-content">
+    <section class="help">
+        <h2>How You Can Help</h2>
+        <div class="help-buttons">
+            <a href="#" class="button-style">Volunteer with us</a>
+            
+            <!-- This is the new link for UPI donation -->
+            <a href="upi://pay?pa=8847248028@ptyes&pn=Anmol%20%20Bhatia&cu=INR" class="button-style help-button-link">Donate to support our work</a>
+            
+            <a href="#" class="button-style">Foster or adopt an animal</a>
+            <a href="#" class="button-style">Spread awareness in your community</a>
+        </div>
+    </section>
+    </main>
+    
+    <!-- JavaScript for menu functionality -->
+    <script>
+        // Function to toggle the side menu
+        function toggleMenu() {
+            const sideMenu = document.getElementById("sideMenu");
+            if (sideMenu.style.width === "250px") {
+                sideMenu.style.width = "0";
+            } else {
+                sideMenu.style.width = "250px";
+            }
+        }
+
+        // Function to close the side menu
+        function closeMenu() {
+            document.getElementById("sideMenu").style.width = "0";
+        }
+    </script>
+</body>
+</html>
