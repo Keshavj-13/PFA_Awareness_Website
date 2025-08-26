@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFA Awareness</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <img src="images/logo.jpg" alt="PFA Logo" class="logo">
+        <h1>PFA Thapar</h1>
+    </nav>
+
+    <header class="hero">
+        <h2>Welcome to People For Animals Awareness</h2>
+        <p>Learn about our work, sterilizations, and vaccinations.</p>
+    </header>
+
+    <section class="stats">
+        <div class="card">
+            <div class="infographic vaccine">
+                <svg viewBox="0 0 56 56">
+                    <circle cx="28" cy="28" r="24" fill="none" stroke-width="6" />
+                    <rect x="24" y="14" width="8" height="20" rx="4" fill="#4fc3f7" />
+                    <rect x="26" y="34" width="4" height="8" rx="2" fill="#4fc3f7" />
+                </svg>
+            </div>
+            <h3>Vaccinations</h3>
+            <p class="counter" data-target="120">0</p>
+        </div>
+        <div class="card">
+            <div class="infographic sterilize">
+                <svg viewBox="0 0 56 56">
+                    <circle cx="28" cy="28" r="24" fill="none" stroke-width="6" />
+                    <ellipse cx="28" cy="28" rx="10" ry="18" fill="#81c784" />
+                    <rect x="24" y="10" width="8" height="36" rx="4" fill="#1e1e1e" />
+                </svg>
+            </div>
+            <h3>Sterilizations</h3>
+            <p class="counter" data-target="75">0</p>
+        </div>
+        <div class="card">
+            <div class="infographic dog">
+                <svg viewBox="0 0 56 56">
+                    <circle cx="28" cy="28" r="24" fill="none" stroke-width="6" />
+                    <ellipse cx="20" cy="24" rx="6" ry="8" fill="#ffd54f" />
+                    <ellipse cx="36" cy="24" rx="6" ry="8" fill="#ffd54f" />
+                    <ellipse cx="28" cy="36" rx="10" ry="8" fill="#ffd54f" />
+                </svg>
+            </div>
+            <h3>Dogs in Care</h3>
+            <p class="counter" data-target="30">0</p>
+        </div>
+    </section>
+
+    <section class="about">
+        <h2>About Us</h2>
+        <p>People For Animals (PFA) is dedicated to animal welfare, focusing on rescue, sterilization, vaccination, and community education. Our mission is to create a safer, kinder world for animals through compassion and action.</p>
+    </section>
+
+    <section class="gallery">
+        <div class="gallery-grid" id="galleryGrid"></div>
+    </section>
+
+    <section class="help">
+        <h2>How You Can Help</h2>
+        <ul>
+            <li>Volunteer with us</li>
+            <li>Donate to support our work</li>
+            <li>Foster or adopt an animal</li>
+            <li>Spread awareness in your community</li>
+        </ul>
+    </section>
+
+    <section class="partners">
+        <h2>Our Partners & Sponsors</h2>
+        <div class="partners-logos" id="partnersLogos"></div>
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.instagram.com/pfa_thapar/" target="_blank" rel="noopener" aria-label="Instagram"><img src="images/social/instagram.svg" alt="Instagram"></a>
+        </div>
+        <p>© 2025 PFA Thapar Awareness</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+    // Gallery auto-load images from images/gallery with random tetris-like layout
+    (function() {
+        const galleryGrid = document.getElementById('galleryGrid');
+        if (galleryGrid) {
+            const frameClasses = ['','tall','wide','big'];
+            let used = {};
+            for (let i = 1; i <= 12; i++) {
+                const img = document.createElement('img');
+                img.src = `images/gallery/${i}.jpg`;
+                img.alt = `Gallery image ${i}`;
+                img.onerror = function() { this.style.display = 'none'; };
+                // Assign a random frame class, but avoid too many bigs
+                let frameClass = frameClasses[Math.floor(Math.random() * frameClasses.length)];
+                if (frameClass === 'big') {
+                    used['big'] = (used['big'] || 0) + 1;
+                    if (used['big'] > 2) frameClass = '';
+                }
+                img.className = frameClass;
+                galleryGrid.appendChild(img);
+            }
+        }
+        // Partners auto-load logos from images/partners
+        const partnersLogos = document.getElementById('partnersLogos');
+        if (partnersLogos) {
+            for (let i = 1; i <= 8; i++) {
+                const img = document.createElement('img');
+                img.src = `images/partners/${i}.png`;
+                img.alt = `Partner logo ${i}`;
+                img.onerror = function() { this.style.display = 'none'; };
+                partnersLogos.appendChild(img);
+            }
+        }
+    })();
+    </script>
+</body>
+</html>
