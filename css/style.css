@@ -10,7 +10,7 @@ body {
 nav {
     display: flex;
     justify-content: flex-start;
-    padding: 1rem 2rem;
+    padding: 3vw 5vw;
     background-color: #222;
     color: #fff;
     position: sticky;
@@ -231,4 +231,18 @@ footer {
 }
 .social-links img:hover {
     filter: brightness(0.7) invert(1) sepia(1) saturate(5) hue-rotate(180deg);
+}
+
+@media (max-width: 600px) {
+    nav {
+        padding: 2vw 3vw;
+    }
+    .logo {
+        height: 36px;
+        width: 36px;
+        margin-right: 0.5rem;
+    }
+    nav h1 {
+        font-size: 1.3rem;
+    }
 }
