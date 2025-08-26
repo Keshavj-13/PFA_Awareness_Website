@@ -10,23 +10,30 @@ body {
 nav {
     display: flex;
     justify-content: flex-start;
-    padding: 3vw 5vw;
+    padding: 4vw 4vw 3vw 4vw;
     background-color: #222;
     color: #fff;
     position: sticky;
     top: 0;
     z-index: 100;
     align-items: center;
-    gap: 1rem;
+    gap: 3vw;
 }
 
 .logo {
-    height: 48px;
-    width: 48px;
+    height: 9vw;
+    width: 9vw;
+    max-height: 48px;
+    max-width: 48px;
     border-radius: 50%;
     object-fit: cover;
-    margin-right: 1rem;
+    margin-right: 2vw;
     vertical-align: middle;
+}
+
+nav h1 {
+    font-size: clamp(1.2rem, 5vw, 2rem);
+    line-height: 1;
 }
 
 /* Removed button styling since no button is present */
@@ -235,14 +242,17 @@ footer {
 
 @media (max-width: 600px) {
     nav {
-        padding: 2vw 3vw;
+        padding: 3vw 2vw 2vw 2vw;
+        gap: 2vw;
     }
     .logo {
-        height: 36px;
-        width: 36px;
-        margin-right: 0.5rem;
+        height: 12vw;
+        width: 12vw;
+        max-height: 36px;
+        max-width: 36px;
+        margin-right: 1vw;
     }
     nav h1 {
-        font-size: 1.3rem;
+        font-size: clamp(1rem, 6vw, 1.3rem);
     }
 }
