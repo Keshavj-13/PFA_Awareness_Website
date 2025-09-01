@@ -39,16 +39,28 @@
     </style>
 </head>
 <body>
+    <!-- Top Bar --> 
+    <header class="topbar">
     <button class="menu-button" onclick="toggleMenu()">☰</button>
-    <nav>
-        <img src="images/logo.jpg" alt="PFA Logo" class="logo">
-        <h1>PFA Thapar</h1>
-        <a href="javascript:void(0)" class="close-button" onclick="closeMenu()">×</a>
-        <a href="about.html">About Us</a>
-        <a href="team.html">Our Team</a>
-        <a href="donation.html">Donation</a>
-        <a href="gallery.html">Gallery</a>
+    <img src="images/logo.jpg" alt="PFA Logo" class="top-logo">
+    <h1>PFA Thapar</h1>
+    </header>
+
+    <!-- Sidebar -->
+    <nav id="sidebar">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="team.html">Our Team</a>
+    <a href="donation.html">Donation</a>
+    <a href="gallery.html">Gallery</a>
     </nav>
+
+    <!-- Overlay (clicks close the menu) -->
+    <div id="overlay" onclick="toggleMenu()"></div>
+
+    <!-- External JS -->
+    <script src="js/script.js"></script>
+
 
     <main class="page-content">
         <header class="hero">

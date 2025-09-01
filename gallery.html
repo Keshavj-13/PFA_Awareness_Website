@@ -1,76 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PFA Awareness - Gallery</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PFA Awareness - Gallery</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <!-- Top Bar --> 
+  <header class="topbar">
     <button class="menu-button" onclick="toggleMenu()">☰</button>
-    <nav>
-        <img src="images/logo.jpg" alt="PFA Logo" class="logo">
-        <h1>PFA Thapar</h1>
-        <a href="javascript:void(0)" class="close-button" onclick="closeMenu()">×</a>
-        <a href="about.html">About Us</a>
-        <a href="team.html">Our Team</a>
-        <a href="donation.html">Donation</a>
-        <a href="gallery.html">Gallery</a>
-    </nav>
+    <img src="images/logo.jpg" alt="PFA Logo" class="top-logo">
+    <h1>PFA Thapar</h1>
+  </header>
 
+  <!-- Sidebar -->
+  <nav id="sidebar">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="team.html">Our Team</a>
+    <a href="donation.html">Donation</a>
+    <a href="gallery.html">Gallery</a>
+  </nav>
 
-    <!-- Main Content Section for Gallery -->
-    <main class="page-content">
-        <section class="gallery">
-            <div class="gallery-grid" id="galleryGrid"></div>
-        </section>
-    </main>
-    
-    <!-- JavaScript for menu and gallery functionality -->
-    <script>
-        // Function to toggle the side menu
-        function toggleMenu() {
-            const sideMenu = document.getElementById("sideMenu");
-            if (sideMenu.style.width === "250px") {
-                sideMenu.style.width = "0";
-            } else {
-                sideMenu.style.width = "250px";
-            }
-        }
+  <!-- Overlay (clicks close the menu) -->
+  <div id="overlay" onclick="toggleMenu()"></div>
 
-        // Function to close the side menu
-        function closeMenu() {
-            document.getElementById("sideMenu").style.width = "0";
-        }
-        
-        // Function to load and display the gallery images
-        function loadGallery() {
-            const galleryGrid = document.getElementById('galleryGrid');
-            if (galleryGrid) {
-                const frameClasses = ['', 'tall', 'wide', 'big'];
-                let used = {};
-                for (let i = 1; i <= 40; i++) { // Corrected loop to include 14 images based on your files
-                    const img = document.createElement('img');
-                    img.src = `images/gallery/${i}.jpg`;
-                    img.alt = `Gallery image ${i}`;
-                    img.onerror = function() { this.style.display = 'none'; }; // Hides image if it doesn't load
-                    
-                    // Assign a random frame class, avoiding too many bigs
-                    let frameClass = frameClasses[Math.floor(Math.random() * frameClasses.length)];
-                    if (frameClass === 'big') {
-                        used['big'] = (used['big'] || 0) + 1;
-                        if (used['big'] > 2) {
-                            frameClass = '';
-                        }
-                    }
-                    img.className = frameClass;
-                    galleryGrid.appendChild(img);
-                }
-            }
-        }
+  <!-- Main Content Section for Gallery -->
+  <main class="page-content">
+    <section class="gallery">
+      <div class="gallery-grid" id="galleryGrid"></div>
+    </section>
+  </main>
 
-        // Call the loadGallery function when the window finishes loading
-        window.onload = loadGallery;
-    </script>
+  <!-- External JS only -->
+  <script src="js/script.js"></script>
 </body>
 </html>

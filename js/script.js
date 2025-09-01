@@ -30,3 +30,91 @@ const observer = new IntersectionObserver((entries, observer) => {
 counters.forEach(counter => {
     observer.observe(counter);
 });
+
+// Toggle Sidebar
+function toggleMenu() {
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("overlay");
+
+  if (sidebar.classList.contains("open")) {
+    sidebar.classList.remove("open");
+    if (overlay) overlay.style.display = "none";
+  } else {
+    sidebar.classList.add("open");
+    if (overlay) overlay.style.display = "block";
+  }
+}
+
+// Counter animation using IntersectionObserver
+document.addEventListener("DOMContentLoaded", () => {
+  const counters = document.querySelectorAll('.counter');
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const counter = entry.target;
+        const targetString = counter.getAttribute('data-target');
+        const target = parseFloat(targetString);
+        const suffix = targetString.replace(target, '');
+
+        const updateCount = () => {
+          const count = parseFloat(counter.innerText);
+          const increment = Math.ceil(target / 200);
+
+          if (count < target) {
+            counter.innerText = (count + increment) + suffix;
+            setTimeout(updateCount, 20);
+          } else {
+            counter.innerText = target + suffix;
+          }
+        };
+
+        updateCount();
+        observer.unobserve(counter);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  counters.forEach(counter => {
+    observer.observe(counter);
+  });
+
+  // Partners auto-load logos from images/partners
+  function loadPartners() {
+    const partnersLogos = document.getElementById('partnersLogos');
+    if (partnersLogos) {
+      for (let i = 1; i <= 8; i++) {
+        const img = document.createElement('img');
+        img.src = `images/partners/${i}.png`;
+        img.alt = `Partner logo ${i}`;
+        img.onerror = function() { this.style.display = 'none'; };
+        partnersLogos.appendChild(img);
+      }
+    }
+  }
+
+  function loadGallery() {
+  const galleryGrid = document.getElementById('galleryGrid');
+  if (galleryGrid) {
+    const frameClasses = ['', 'tall', 'wide', 'big'];
+    let used = {};
+    for (let i = 1; i <= 40; i++) {
+      const img = document.createElement('img');
+      img.src = `images/gallery/${i}.jpg`;
+      img.alt = `Gallery image ${i}`;
+      img.onerror = function() { this.style.display = 'none'; };
+
+      let frameClass = frameClasses[Math.floor(Math.random() * frameClasses.length)];
+      if (frameClass === 'big') {
+        used['big'] = (used['big'] || 0) + 1;
+        if (used['big'] > 2) frameClass = '';
+      }
+      img.className = frameClass;
+      galleryGrid.appendChild(img);
+    }
+  }
+}
+
+loadPartners();
+loadGallery();
+});
