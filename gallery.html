@@ -26,12 +26,17 @@
   <!-- Overlay (clicks close the menu) -->
   <div id="overlay" onclick="toggleMenu()"></div>
 
-  <!-- Main Content Section for Gallery -->
   <main class="page-content">
     <section class="gallery">
-      <div class="gallery-grid" id="galleryGrid"></div>
+        <div class="gallery-grid" id="galleryGrid"></div>
     </section>
-  </main>
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span id="lightbox-close" class="close">&times;</span>
+        <img id="lightbox-img" src="" alt="Large view">
+    </div>
 
   <!-- External JS only -->
   <script src="js/script.js"></script>

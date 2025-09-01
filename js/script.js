@@ -110,10 +110,43 @@ document.addEventListener("DOMContentLoaded", () => {
         if (used['big'] > 2) frameClass = '';
       }
       img.className = frameClass;
+
+      // Add click listener to open in lightbox
+      img.addEventListener('click', () => openLightbox(img.src));
+
       galleryGrid.appendChild(img);
     }
   }
 }
+
+// Lightbox functions
+function openLightbox(src) {
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  lightbox.style.display = "flex";
+  lightboxImg.src = src;
+}
+
+function closeLightbox() {
+  document.getElementById("lightbox").style.display = "none";
+}
+
+// Setup close events
+window.addEventListener("load", () => {
+  const lightbox = document.getElementById("lightbox");
+  const closeBtn = document.getElementById("lightbox-close"); // safer with unique ID
+
+  if (lightbox && closeBtn) {
+    // Close when clicking the X
+    closeBtn.addEventListener("click", closeLightbox);
+
+    // Close when clicking outside the image
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+  }
+});
+
 
 loadPartners();
 loadGallery();
