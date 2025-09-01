@@ -440,6 +440,17 @@ footer {
     }
 }
 
+/* Prevent content from sliding under the fixed topbar */
+.page-content,
+.hero,
+.about,
+.help,
+.gallery,
+.partners {
+  margin-top: var(--topbar-height);
+}
+
+
 @media (max-width: 600px) {
     nav {
         padding: 0.4rem 0.5rem;
